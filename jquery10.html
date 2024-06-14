@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $("document").ready(function(){
+            $("p").on({
+                mouseenter: function(){
+                    $(this).css("background-color","lightgray");
+                },
+                mouseleave: function(){
+                    $(this).css("background-color","red");
+                },
+                click:function()
+                {
+                    $(this).css("background-color","yellow");
+                }
+            });
+            $("h1").mousedown(function(){
+                $("h2").toggle(200);
+            });
+        });
+    </script>
+</head>
+<body>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A quod doloremque impedit itaque at aliquid repellendus praesentium. Provident vero nisi natus dolores, perspiciatis eligendi perferendis autem ullam ducimus suscipit aperiam. Ut voluptas dolor voluptatum asperiores.</p>
+<!--
+    use for making multiple div with diffrent id
+    p*10#num$ -->
+    <h1>hii i am siuuuuu</h1>
+    <h2>siiiiiiiiiiiiiiiiiiiuuuuuuuuuuuuu</h2>
+</body>
+</html>

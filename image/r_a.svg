@@ -1,0 +1,9 @@
+<svg id="Component_488" data-name="Component 488" xmlns="http://www.w3.org/2000/svg" width="40" height="39" viewBox="0 0 40 39">
+  <g id="Rectangle_5621" data-name="Rectangle 5621" fill="#fff" stroke="#e0e0e0" stroke-width="1">
+    <path d="M0,0H40a0,0,0,0,1,0,0V31a8,8,0,0,1-8,8H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" stroke="none"/>
+    <path d="M1,.5H39a.5.5,0,0,1,.5.5V31A7.5,7.5,0,0,1,32,38.5H1A.5.5,0,0,1,.5,38V1A.5.5,0,0,1,1,.5Z" fill="none"/>
+  </g>
+  <g id="small-down" transform="translate(14 28.455) rotate(-90)">
+    <path id="Path_26" data-name="Path 26" d="M9.227,11.744,0,2.418,2.392,0,9.227,6.908,16.063,0l2.392,2.418Z" fill="#262626"/>
+  </g>
+</svg>

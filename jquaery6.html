@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $("#test").mouseenter(function(){
+                alert("You eneteres p2");
+            });
+            $(".text").mouseleave(function(){
+                alert("You leaving p1");
+            });
+            $("#test1").mousedown(function(){
+                alert("You ldowning p1");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>This is head</h2>
+    <P class="text">this is para 1</P>
+    
+    <P id="test1">this is para 2</P>
+    <P id="test">this is para 2</P>
+</body>
+</html>

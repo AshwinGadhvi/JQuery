@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        i=0;
+        $(document).ready(function()
+        {
+            $("nav").click(function()
+            {
+                $("a").hide('fast');
+            });
+            $("h1").click(function(){
+                $("p").toggle(2000,'linear');
+                
+            });
+            $("button").click(function(){
+                $("nav").show();
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <span id="sp1" style="background-color: black;width: 50px;height: 10px;display: block;border-radius: 5px;margin-bottom: 2px;"></span>
+        <span id="sp2" style="background-color: black;width: 50px;height: 10px;display: block;border-radius: 5px;margin-bottom: 2px;"></span>
+        <span id="sp3" style="background-color: black;width: 50px;height: 10px;display: block;border-radius: 5px;margin-bottom: 2px;"></span>
+    </nav>
+    
+    <a href="#" id="1" style="display: block;">home</a>
+    <a href="#" id="2" style="display: block;">about</a>
+    <a href="#" id="3" style="display: block;">contact</a>
+    <a href="#" id="4" style="display: block;">fast</a>
+    <a href="#" id="5" style="display: block;">slow</a>
+    <a href="#" id="6" style="display: block;">seconds</a>
+    <h1>click me</h1>
+    <p style="width:400px;height:300px;text-align: justify;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, distinctio corrupti error nesciunt, consectetur eius eveniet ex, modi amet obcaecati neque voluptate numquam magnam impedit? Neque atque et voluptatibus numquam qui ex mollitia eligendi cum voluptates id iure optio odit voluptas, distinctio provident assumenda ipsa fugit alias deleniti. Doloribus, provident.</p>
+    <button>Submit</button>
+
+</body>
+</html>

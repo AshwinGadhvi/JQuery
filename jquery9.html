@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        i=0;
+        $(document).ready(function()
+        {
+            $("input").keypress(function(){
+                $("span").text (i+=1);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>This is head</h2>
+    name : <input type="text" name="name" id="n1">
+    <span>
+        0
+    </span>
+</body>
+</html>

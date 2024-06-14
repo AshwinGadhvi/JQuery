@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $("form").submit(function(event)
+        {
+            if($("input:first").val()==="comp"){
+                $("span").text("Submit op").show();
+                return;
+            }
+            $("span").text("not valid").show().fadeOut(2000);
+            event.preventDefault();
+        });
+    </script>
+</head>
+<body>
+    <h2>This is head</h2>
+    <form action="javascript:alert('success!');">
+        <div>
+            name : <input type="text" name="name" id="n1">
+            <input type="submit" name="submit" id="p1">
+        </div>
+    </form>
+    <span></span>
+</body>
+</html>

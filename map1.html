@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+    <script src="https://www.amcharts.com/lib/3/maps/js/indiaLow.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #chartdiv {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chartdiv"></div>
+    <script>
+        var map = AmCharts.makeChart( "chartdiv", {
+  "type": "map",
+  "zoomOnDoubleClick": false,
+  "zoomControl": {
+		"zoomControlEnabled": false,
+		"panControlEnabled": false
+	},
+  "theme": "light",
+  "dataProvider": {
+    "map": "indiaLow",
+    "areas": [
+				{id:"IN-AN" , "color":"#1eb5ef"},
+				{id:"IN-AP" , "color":"#1eb5ef"},
+				{id:"IN-AR" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-AS" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-BR" , "color":"#1eb5ef"},
+				{id:"IN-CH" , "color":"#1eb5ef"},
+				{id:"IN-CT" , "color":"#1eb5ef"},
+				{id:"IN-DD" , "color":"#1eb5ef"},
+				{id:"IN-DL" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-DN" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-GA" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-GJ" , "color":"#1eb5ef"},
+				{id:"IN-HP" , "color":"#1eb5ef"},
+				{id:"IN-HR" , "color":"#1eb5ef"},
+				{id:"IN-JH" , "color":"#1eb5ef"},
+				{id:"IN-JK" , "color":"#1eb5ef"},
+				{id:"IN-KA" , "color":"#1eb5ef"},
+				{id:"IN-KL" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-LD" , "color":"#1eb5ef"},
+				{id:"IN-MH" , "color":"#1eb5ef"},
+				{id:"IN-ML" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-MN" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-MP" , "color":"#1eb5ef"},
+				{id:"IN-MZ" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-NL" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-OR" , "color":"#1eb5ef"},
+				{id:"IN-PB" , "color":"#1eb5ef"},
+				{id:"IN-PY" , "color":"#1eb5ef"},
+				{id:"IN-RJ" , "color":"#1eb5ef"},
+				{id:"IN-SK" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-TG" , "color":"#1eb5ef"},
+				{id:"IN-TN" , "color":"#1eb5ef"},
+				{id:"IN-TR" , "color":"#1eb5ef", "callout": true},
+				{id:"IN-UP" , "color":"#1eb5ef"},
+				{id:"IN-UT" , "color":"#1eb5ef"},
+				{id:"IN-WB" , "color":"#1eb5ef", "callout": true }
+			  ]
+  },
+  "areasSettings": {
+    "autoZoom": false,
+    "selectedColor": "#CC0000"
+  },
+  "imagesSettings": {
+    "labelColor": "#fff",
+    "labelPosition": "middle"
+  }
+} );
+
+map.addListener( "init", function() {
+
+  // small areas
+  var small = [ "IN-AR", "IN-AS", "IN-DL", "IN-DN", "IN-KL", "IN-ML", "IN-MN", "IN-MZ" ];
+
+  // set up a longitude exceptions for certain areas
+  var longitude = {
+    "IN-CT": -1,
+    "US-FL": 120,
+    "US-TX": 1,
+    "US-LA": 40
+  };
+
+  var latitude = {
+    "US-AK": -83
+  };
+  
+  // Positions of callouts
+  var callouts = [
+    70, 60, 46, 26, 3, -20, -40, -256
+  ];
+  
+  var offset = 0;
+
+  setTimeout( function() {
+    // iterate through areas and put a label over center of each
+    //map.dataProvider.images = [];
+    for ( x in map.dataProvider.areas ) {
+      var area = map.dataProvider.areas[ x ];
+      area.groupId = area.id;
+      var image = new AmCharts.MapImage();
+      image.title = area.title;
+      image.linkToObject = area;
+      image.groupId = area.id;
+      
+      // callout or regular label
+      if ( area.callout ) {
+        image.latitude = callouts.shift();
+        image.longitude = 156;
+        image.label = area.value;
+        image.type = "rectangle";
+        image.color = area.color;
+        image.shiftX = offset;
+        image.width = 22;
+        image.height = 22;
+        
+        // create additional image
+        var image2 = new AmCharts.MapImage();
+        image2.latitude = image.latitude;
+        image2.longitude = image.longitude;
+        image2.label = area.id.split( '-' ).pop();
+        image2.labelColor = "#000";
+        image2.labelShiftX = 24;
+        image2.groupId = area.id;
+        map.dataProvider.images.push( image2 );
+      }
+      else {
+        image.latitude = latitude[ area.id ] || map.getAreaCenterLatitude( area );
+        image.longitude = longitude[ area.id ] || map.getAreaCenterLongitude( area );
+        image.label = area.id.split( '-' ).pop() + "\n" + area.value;
+      }
+      
+      map.dataProvider.images.push( image );
+    }
+    map.validateData();
+  }, 100 )
+} );
+    </script>
+</body>
+
+</html>

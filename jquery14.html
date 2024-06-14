@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("p").bind("click",function(){
+                alert("Given paragraph was click");
+            });
+        });
+    
+    </script>
+    <style>
+        p{
+            display: block;
+            padding: 50px;
+            width: 270px;
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+<p>This is paragraph</p>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, nihil?</p>
+    <p id="p2">Click me Away!</p>
+    <p id="p1">Click me too!</p>
+    <span id="demo"></span><br/>
+    <input type="text" value="0" style="width:150px" />
+    <input type="text" value="0" style="width:150px" />
+    <input type="text" value="0" style="width:150px" />
+    <input type="text" value="0" style="width:150px" />
+
+    <script type="text/javascript">
+        $(function() {
+            $("#p1").dblclick(function() {
+                document.getElementById("demo").innerHTML = "Double Clicked";
+            });
+
+            $("#p1").mouseenter(function() {
+                document.getElementById("demo").innerHTML = "Mouse Entered";
+            });
+
+            $("#p1").mouseleave(function() {
+                document.getElementById("demo").innerHTML = "Mouse Leaved";
+            });
+
+            $("#p1").mousedown(function() {
+                document.getElementById("demo").innerHTML = "Mouse Down";
+            });
+
+            $("#p1").mouseup(function() {
+                document.getElementById("demo").innerHTML = "Mouse Up";
+            });
+
+            $("input").focus(function() {
+                $(this).css("background-color", "red");
+                $(this).css("border", "2px solid black");
+                $(this).css("padding", "10px");
+            });
+
+            $("input").blur(function() {
+                $(this).css("background-color", "green");
+                $(this).css("border", "2px dotted black");
+                $(this).css("padding", "1px");
+            });
+
+            $("#p2").on({
+                mouseenter: function() {
+                    $(this).css("background-color", "red");
+                },
+                mouseleave: function() {
+                    $(this).css("background-color", "green");
+                },
+                click: function() {
+                    $(this).css("background-color", "brown");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
